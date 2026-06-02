@@ -1,0 +1,129 @@
+.band-info-page h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.band-info-page .lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.band-info-page .album-thumbnail {
+    text-align: center;
+}
+
+.band-info-page .album-cover-img {
+    max-width: 150px; /* Ограничиваем размер обложки */
+    height: auto;
+    border-radius: 0.375rem; /* Bootstrap border-radius */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.band-info-page .album-thumbnail:hover .album-cover-img {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.band-info-page .album-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.band-info-page .album-title a {
+    color: #007bff; /* Цвет ссылки Bootstrap */
+}
+
+.band-info-page .album-title a:hover {
+    color: #0056b3;
+}
+
+/* Стили для страницы альбома */
+.album-page-container .album-cover-img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Применение стилей Bootstrap к заглушке img */
+.album-thumbnail .rounded-thumbnail {
+    display: inline-block; /* Чтобы margin работал правильно */
+}
+
+
+/* Стили для ArtistPage */
+.artist-page h2,
+.artist-page h3 {
+    color: #007bff; /* Цвет заголовков */
+    margin-top: 1.5rem; /* Отступ сверху */
+}
+
+.artist-profile-card {
+    background-color: #ffffff;
+    border-color: rgba(0, 0, 0, 0.125);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.artist-profile-card h3 {
+    margin-top: 0; /* Убираем лишний отступ для имени */
+}
+
+.map-card {
+    background-color: #ffffff;
+    border-color: rgba(0, 0, 0, 0.125);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.map-wrapper {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+.leaflet-container {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.375rem;
+}
+
+.list-group-item {
+    border-left: 4px solid #0d6efd;
+    background-color: #f8f9fa; /* Легкий фон для элементов списка */
+}
+
+.list-group-item.active { /* Стиль для активных элементов, если они есть */
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.badge {
+    margin-left: 10px;
+}
+
+.social-links .social-link-icon {
+    color: #6c757d; /* Цвет иконок соцсетей */
+    transition: color 0.3s ease;
+}
+
+.social-links .social-link-icon:hover {
+    color: #007bff; /* Цвет при наведении */
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #0d6efd 0%, #084298 100%);
+    border-radius: 0 0 50px 50px; /* Красивый скругленный низ у хедера */
+    padding: 60px 0;
+}
+
+.fs-1 {
+    font-size: 3rem; /* Размер иконок в карточках */
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Эффект подъема карточки при наведении */
+}
