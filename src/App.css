@@ -127,3 +127,135 @@
 .card:hover {
     transform: translateY(-10px); /* Эффект подъема карточки при наведении */
 }
+
+/* ... (предыдущие стили) ... */
+/* ... (предыдущие стили) ... */
+
+/* Стили для ArtistCard */
+.artist-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex; /* Для выравнивания по высоте */
+    flex-direction: column; /* Для flex-контейнера */
+}
+
+.artist-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.artist-card .row { /* Убираем flex-direction column для внутренней row */
+    flex-direction: row;
+    flex: 1; /* Чтобы row занимал все доступное пространство */
+}
+
+.artist-card-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid rgba(0, 123, 255, 0.5);
+    margin: 1rem auto; /* Центрируем по горизонтали */
+}
+
+.artist-card .card-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Прижимает кнопку к низу */
+    flex: 1; /* Важно для выравнивания высоты всего body */
+}
+
+.artist-card-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block; /* Чтобы Link действовал как блок */
+}
+
+.artist-card-birth-info {
+    font-size: 0.9rem;
+}
+
+.artist-card-bio {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.artist-card-influence {
+    font-size: 0.85rem;
+    color: #555; /* Чуть темнее для влияния */
+}
+
+.artist-card .badge { /* Стиль для бейджей с ролями */
+    font-size: 0.8rem;
+    margin-left: 0.5rem; /* Отступ между бейджами */
+}
+
+.artist-card .btn {
+    margin-top: auto; /* Кнопка прижимается вниз */
+}
+
+/* ... (предыдущие стили) ... */
+
+/* Стили для галереи */
+.band-page-container .carousel .carousel-item .carousel-image {
+    height: 400px; /* Максимальная высота изображения в галерее */
+    object-fit: cover; /* Обрезаем изображение, чтобы оно заполняло контейнер */
+    width: 100%; /* Гарантируем, что изображение занимает всю ширину */
+    background-color: #f8f9fa; /* Цвет фона, если изображение не загрузилось */
+    display: block; /* Убирает лишние пробелы под изображением */
+}
+
+.band-page-container .carousel .carousel-control-prev,
+.band-page-container .carousel .carousel-control-next {
+    opacity: 0.7; /* Полупрозрачность */
+    transition: opacity 0.3s ease;
+}
+
+.band-page-container .carousel .carousel-control-prev:hover,
+.band-page-container .carousel .carousel-control-next:hover {
+    opacity: 1; /* Полная видимость при наведении */
+}
+
+/* Если вы используете Carousel.Caption */
+/* .band-page-container .carousel .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.375rem;
+    padding: 1rem;
+} */
+
+.video-card .video-thumbnail-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.video-card .play-icon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.video-card .play-icon-overlay:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.video-card .play-button-icon {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.video-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+}

@@ -1,4 +1,4 @@
-import { Container, Row, Col, Image, ListGroup, Card, Button, Figure } from 'react-bootstrap';
+import { Container, Row, Col, Image, ListGroup, Card, Button, Figure, Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function BandInfo({ band }) {
@@ -17,7 +17,7 @@ function BandInfo({ band }) {
             <Row>
                 {/* Левая колонка: картинка, описание, основные этапы */}
                 <Col lg={4} className="mb-4 mb-lg-0">
-                    <Card className="shadow-sm h-100">
+                    <Card className="shadow-sm">
                         <Card.Img variant="top" src={band.imageUrl || 'https://via.placeholder.com/400x300?text=Band+Image'} alt={band.name} />
                         <Card.Body>
                             <Card.Title>Описание</Card.Title>
@@ -45,7 +45,7 @@ function BandInfo({ band }) {
                     {/* Участники группы */}
                     <Card className="mb-4 shadow-sm">
                         <Card.Body>
-                            <Card.Title>Участники</Card.Title>
+                            <Card.Title className="mb-3">Участники</Card.Title>
                             <Row xs={1} sm={2} md={3} lg={4} className="g-3">
                                 {band.members && band.members.length > 0 ? (
                                     band.members.map(member => (
@@ -80,7 +80,7 @@ function BandInfo({ band }) {
                     {/* Популярные песни */}
                     <Card className="mb-4 shadow-sm">
                         <Card.Body>
-                            <Card.Title>Популярные песни</Card.Title>
+                            <Card.Title  className="mb-3">Популярные песни</Card.Title>
                             <ListGroup variant="flush">
                                 {band.popularSongs && band.popularSongs.length > 0 ? (
                                     band.popularSongs.map(song => (
@@ -105,9 +105,9 @@ function BandInfo({ band }) {
                     </Card>
 
                     {/* Популярные альбомы */}
-                    <Card className="shadow-sm">
+                    <Card className="mb-4 shadow-sm">
                         <Card.Body>
-                            <Card.Title>Популярные альбомы</Card.Title>
+                            <Card.Title className="mb-3">Популярные альбомы</Card.Title>
                             <Row xs={1} md={2} lg={3} className="g-3">
                                 {band.popularAlbums && band.popularAlbums.length > 0 ? (
                                     band.popularAlbums.map(album => (
@@ -138,6 +138,68 @@ function BandInfo({ band }) {
                             </Row>
                         </Card.Body>
                     </Card>
+
+                     {/* --- Секция Галереи --- */}
+                    {band.gallery && band.gallery.length > 0 && (
+                        <Card className="shadow-sm">
+                            <Card.Body>
+                                <Card.Title>Галерея</Card.Title>
+                                <Carousel controls={true} indicators={false} interval={null}>
+                                    {band.gallery.map((imageUrl, index) => (
+                                        <Carousel.Item key={index}>
+                                            <Figure className="w-100 h-100">
+                                                <Figure.Image
+                                                    className="d-block carousel-image"
+                                                    src={imageUrl}
+                                                    alt={`Gallery image ${index + 1}`}
+                                                    rounded
+                                                />
+                                            </Figure>
+                                        </Carousel.Item>
+                                    ))}
+                                </Carousel>
+                            </Card.Body>
+                        </Card>
+                    )}
+                    {/* --- Конец секции Галереи --- */}
+                    {band.videos && band.videos.length > 0 && (
+                    <Card className="shadow-sm mt-4">
+                        <Card.Body>
+                            <Card.Title className="mb-4">Видео</Card.Title>
+                            <Row xs={1} md={2} className="g-4">
+                                {band.videos.map((video) => (
+                                    <Col key={video.id}>
+                                        <Card className="h-100 video-card">
+                                            <div className="video-thumbnail-wrapper">
+                                                <Card.Img variant="top" src={video.thumbnail} />
+                                                {/* Кнопка Play поверх картинки */}
+                                                <a 
+                                                    href={`https://www.youtube.com/watch?v=${video.id}`} 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer" 
+                                                    className="play-icon-overlay"
+                                                >
+                                                    <div className="play-button-icon">▶</div>
+                                                </a>
+                                            </div>
+                                            <Card.Body>
+                                                <Card.Title className="h6">{video.title}</Card.Title>
+                                                <Button 
+                                                    variant="outline-danger" 
+                                                    href={`https://www.youtube.com/watch?v=${video.id}`} 
+                                                    target="_blank"
+                                                    size="sm"
+                                                >
+                                                    Смотреть на YouTube
+                                                </Button>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+                                ))}
+                            </Row>
+                        </Card.Body>
+                    </Card>
+                )}
                 </Col>
             </Row>
         </Container>

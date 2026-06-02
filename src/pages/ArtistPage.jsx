@@ -5,55 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import Map from "../components/Map/Map";
 import 'leaflet/dist/leaflet.css';
 import { FaInstagram, FaTwitter } from 'react-icons/fa'; // Для иконок соцсетей
-
-// Предполагаемый объект artistData
-// import artistData from '../data/artistData'; // Укажите ваш путь к данным
-// Для примера, данные прямо здесь:
-const artistData = {
-    111: {
-        id: 111,
-        name: "Chester Bennington",
-        birthDate: "1976-03-20",
-        birthPlace: "Финикс, Аризона, США",
-        biographySummary: "Честер Чарльз Беннингтон был американским певцом, автором песен и актером. Наиболее известен как фронтмен и основной вокалист рок-группы Linkin Park, а также как лидер проекта Dead by Sunrise.",
-        lifeStages: [
-            { year: 1976, event: "Рождение в Финиксе, Аризона." },
-            { year: 1993, event: "Присоединение к группе Grey Daze." },
-            { year: 1999, event: "Присоединение к группе Xero (будущая Linkin Park)." },
-            { year: 2000, event: "Выпуск дебютного альбома Linkin Park 'Hybrid Theory'." },
-            { year: 2005, event: "Создание сайд-проекта Dead by Sunrise." },
-            { year: 2017, event: "Трагический уход из жизни." }
-        ],
-        interestingFacts: [
-            "До Linkin Park работал в кофейне.",
-            "Его первым инструментом было пианино.",
-            "Озвучивал персонажа в фильме 'Адреналин'."
-        ],
-        bands: [
-            { bandName: "Linkin Park", joined: 1999, left: 2017, role: "Вокалист" },
-            { bandName: "Grey Daze", joined: 1993, left: 1998, role: "Вокалист" },
-            { bandName: "Dead by Sunrise", joined: 2005, left: 2012, role: "Вокалист" }
-        ],
-        discography: [
-            { albumId: 4, albumTitle: "Hybrid Theory", band: "Linkin Park", role: "Вокал" },
-            { albumId: 5, albumTitle: "Meteora", band: "Linkin Park", role: "Вокал" },
-            { albumId: 6, albumTitle: "Minutes to Midnight", band: "Linkin Park", role: "Вокал" },
-            { albumId: 9, albumTitle: "Pause the Insanity", band: "Grey Daze", role: "Вокал" },
-            { albumId: 10, albumTitle: "Out of the Shadows", band: "Dead by Sunrise", role: "Вокал" }
-        ],
-        influences: [
-            { type: "influenced", name: "Imagine Dragons", artistId: 12 },
-            { type: "influenced", name: "Twenty One Pilots", artistId: 13 },
-            { type: "influenced_by", name: "Depeche Mode", artistId: 14 },
-            { type: "influenced_by", name: "Nine Inch Nails", artistId: 15 }
-        ],
-        socialLinks: [
-            { platform: "Instagram", url: "https://www.instagram.com/chesterbe/" },
-            { platform: "Twitter", url: "https://twitter.com/chesterbe" }
-        ],
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQrv66SEZJLI3n8vxh6TOovlYLdg6uHZhBAw&s"
-    }
-};
+import artistData from "../data/artistData";
 
 function ArtistPage() {
     const { artistId } = useParams();
@@ -99,7 +51,7 @@ function ArtistPage() {
                         <Card.Body>
                             <Card.Title>Место рождения на карте</Card.Title>
                             <div className="map-wrapper" style={{ height: "300px", width: "100%" }}>
-                              <Map place={phoenixCoords}/>
+                              <Map place={artist.birthPlaceCoords}/>
                             </div>
                         </Card.Body>
                     </Card>
